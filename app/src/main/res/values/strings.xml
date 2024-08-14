@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">task_treeleaf</string>
+    <string name="date">Date</string>
+    <string name="s_n">S.N.</string>
+    <string name="transactions_amount">Transactions Amount</string>
+    <string name="total_amount">Total Amount:</string>
+    <string name="filter_with">Filter With:</string>
+
+
+    <string-array name="filter_options">
+        <item>All Data</item>
+        <item>Monthly Data</item>
+    </string-array>
+
+</resources>
