@@ -1,10 +1,13 @@
-package com.example.task_treeleaf;
+package com.example.task_treeleaf.app_database;
 
 import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+
+import com.example.task_treeleaf.dao.SalesDao;
+import com.example.task_treeleaf.model.SalesData;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

@@ -1,10 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
 
     <DatePicker
@@ -13,29 +13,40 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/amountInput"
+        android:id="@+id/edtItemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@drawable/edt_border"
         android:layout_marginTop="5dp"
-        android:hint="@string/transactions_amount" />
+        android:background="@drawable/edt_border"
+        android:hint="@string/item_name"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/edtAmountInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edt_border"
+        android:hint="@string/transactions_amount"
+        android:padding="10dp" />
+
 
     <Button
         android:id="@+id/addButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:layout_marginTop="5dp"
-        android:text="Add Sale" />
+        android:padding="10dp"
+        android:text="@string/add_sales" />
+
 
     <Button
         android:id="@+id/calculateButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:layout_marginTop="5dp"
-        android:text="Calculate Monthly Sales" />
+        android:padding="10dp"
+        android:text="@string/calculate_sales_with_filter" />
 
 
 </LinearLayout>

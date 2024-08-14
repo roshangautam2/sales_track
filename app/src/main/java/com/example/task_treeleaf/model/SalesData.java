@@ -1,4 +1,4 @@
-package com.example.task_treeleaf;
+package com.example.task_treeleaf.model;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -10,9 +10,11 @@ public class SalesData {
     private int id;
     private String date;
     private double amount;
+    private String productName;
 
-    public SalesData(String date, double amount) {
+    public SalesData(String date,String productName, double amount) {
         this.date = date;
+        this.productName = productName;
         this.amount = amount;
     }
 
@@ -38,5 +40,13 @@ public class SalesData {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 }

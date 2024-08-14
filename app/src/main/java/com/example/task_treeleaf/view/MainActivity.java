@@ -1,4 +1,4 @@
-package com.example.task_treeleaf;
+package com.example.task_treeleaf.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,12 +10,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.task_treeleaf.R;
+import com.example.task_treeleaf.model.SalesData;
+import com.example.task_treeleaf.view_model.SalesViewModel;
+
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
     private SalesViewModel viewModel;
-    private EditText amountInput;
+    private EditText amountInput,itemName;
     private Button addButton, calculateButton;
     private DatePicker datePicker;
     private String selectedDate;
@@ -25,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        amountInput = findViewById(R.id.amountInput);
+        amountInput = findViewById(R.id.edtAmountInput);
+        itemName = findViewById(R.id.edtItemName);
         addButton = findViewById(R.id.addButton);
         calculateButton = findViewById(R.id.calculateButton);
         datePicker = findViewById(R.id.datePicker);
@@ -47,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
         addButton.setOnClickListener(v -> {
             String amountText = amountInput.getText().toString();
+            String productName = itemName.getText().toString();
+
+
             if (selectedDate == null || selectedDate.isEmpty()) {
                 Toast.makeText(MainActivity.this, "Please select a date", Toast.LENGTH_SHORT).show();
                 return;
@@ -56,7 +64,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Please enter an amount", Toast.LENGTH_SHORT).show();
                 return;
             }
-
+            if (productName == null || productName.isEmpty()) {
+                Toast.makeText(MainActivity.this, "Please enter an amount", Toast.LENGTH_SHORT).show();
+                return;
+            }
             double amount;
             try {
                 amount = Double.parseDouble(amountText);
@@ -65,11 +76,11 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            SalesData salesData = new SalesData(selectedDate, amount);
+            SalesData salesData = new SalesData(selectedDate,productName, amount);
             viewModel.insertSale(salesData);
             Toast.makeText(MainActivity.this, "Sale added successfully", Toast.LENGTH_SHORT).show();
-            // Clear the amount input field after successful sale
-            amountInput.setText("");
+             amountInput.setText("");
+            itemName.setText("");
         });
 
         calculateButton.setOnClickListener(v -> {

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -7,6 +7,7 @@
     android:gravity="center_vertical"
     android:weightSum="3">
 
+    <!-- Serial Number -->
     <TextView
         android:id="@+id/serialNumber"
         android:layout_width="wrap_content"
@@ -17,16 +18,29 @@
         android:gravity="center"
         android:padding="4dp" />
 
+    <!-- Item Name -->
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:text="@string/item_names"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:padding="4dp" />
+
+    <!-- Date -->
     <TextView
         android:id="@+id/date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1.4"
+        android:layout_weight="1"
         android:text="@string/date"
         android:textSize="14sp"
         android:gravity="center"
         android:padding="4dp" />
 
+    <!-- Amount -->
     <TextView
         android:id="@+id/amount"
         android:layout_width="0dp"

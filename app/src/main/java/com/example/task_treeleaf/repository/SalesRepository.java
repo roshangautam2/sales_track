@@ -1,8 +1,13 @@
-package com.example.task_treeleaf;
+package com.example.task_treeleaf.repository;
 
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
+
+import com.example.task_treeleaf.app_database.AppDatabase;
+import com.example.task_treeleaf.dao.SalesDao;
+import com.example.task_treeleaf.model.MonthlySalesSummary;
+import com.example.task_treeleaf.model.SalesData;
 
 import java.util.List;
 

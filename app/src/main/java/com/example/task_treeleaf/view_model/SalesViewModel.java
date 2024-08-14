@@ -1,9 +1,13 @@
-package com.example.task_treeleaf;
+package com.example.task_treeleaf.view_model;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
+import com.example.task_treeleaf.repository.SalesRepository;
+import com.example.task_treeleaf.model.MonthlySalesSummary;
+import com.example.task_treeleaf.model.SalesData;
 
 import java.util.List;
 

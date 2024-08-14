@@ -1,4 +1,4 @@
-package com.example.task_treeleaf;
+package com.example.task_treeleaf.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.task_treeleaf.R;
+import com.example.task_treeleaf.model.MonthlySalesSummary;
 
 import java.util.List;
 
@@ -25,7 +28,7 @@ public class MonthlySalesAdapter extends RecyclerView.Adapter<MonthlySalesAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         MonthlySalesSummary summary = monthlySalesList.get(position);
-
+        holder.serialNumberTextView.setText(String.valueOf(position + 1));
         holder.monthTextView.setText(summary.getMonth());
         holder.totalAmountTextView.setText(String.valueOf(summary.getTotal_amount()));
     }
@@ -36,13 +39,14 @@ public class MonthlySalesAdapter extends RecyclerView.Adapter<MonthlySalesAdapte
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView monthTextView;
-        public TextView totalAmountTextView;
+         public TextView totalAmountTextView,serialNumberTextView,monthTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             monthTextView = itemView.findViewById(R.id.monthTextView);
             totalAmountTextView = itemView.findViewById(R.id.totalAmountTextView);
+            serialNumberTextView = itemView.findViewById(R.id.txtSn);
+
         }
     }
 }

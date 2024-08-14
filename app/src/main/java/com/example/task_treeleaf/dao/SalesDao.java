@@ -1,4 +1,4 @@
-package com.example.task_treeleaf;
+package com.example.task_treeleaf.dao;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
@@ -6,13 +6,8 @@ import androidx.room.Query;
 
 import java.util.List;
 
-import androidx.lifecycle.LiveData;
-import androidx.room.Dao;
-import androidx.room.Insert;
-import androidx.room.Query;
-
-import java.util.List;
-import java.util.Map;
+import com.example.task_treeleaf.model.MonthlySalesSummary;
+import com.example.task_treeleaf.model.SalesData;
 
 @Dao
 public interface SalesDao {

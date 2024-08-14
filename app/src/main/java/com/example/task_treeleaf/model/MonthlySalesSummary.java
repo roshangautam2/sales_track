@@ -1,4 +1,4 @@
-package com.example.task_treeleaf;
+package com.example.task_treeleaf.model;
 
 public class MonthlySalesSummary {
     private String month;
