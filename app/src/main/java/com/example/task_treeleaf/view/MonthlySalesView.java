@@ -53,6 +53,7 @@ public class MonthlySalesView extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         salesViewModel = new ViewModelProvider(this).get(SalesViewModel.class);
+        amountInWords.setSelected(true); // Make sure the view is selected
         amountInWords.requestFocus();
 
         // Set up the spinner with filter options
@@ -101,17 +102,21 @@ public class MonthlySalesView extends AppCompatActivity {
                     for (MonthlySalesSummary summary : monthlySalesList) {
                         totalAmount += summary.getTotal_amount();
                     }
-                    grandTotal.setText(String.format("NRS.%.2f", totalAmount));
-
-                    SpannableStringBuilder builder = new SpannableStringBuilder();
-                    builder.append("In Words: ");
-                    builder.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 0, "In Words: ".length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    builder.setSpan(new RelativeSizeSpan(1.5f), 0, "In Words: ".length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    builder.append(AmountToWordsConverter.convertAmountToWords(totalAmount));
-                    amountInWords.setText(builder);
+                   getAmountInWordView(totalAmount);
                 }
             }
         });
+    }
+
+    private void getAmountInWordView(double totalAmount) {
+        grandTotal.setText(String.format("NRS.%.2f", totalAmount));
+
+        SpannableStringBuilder builder = new SpannableStringBuilder();
+        builder.append("In Words: ");
+        builder.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 0, "In Words: ".length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        builder.setSpan(new RelativeSizeSpan(1.5f), 0, "In Words: ".length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        builder.append(AmountToWordsConverter.convertAmountToWords(totalAmount));
+        amountInWords.setText(builder);
     }
 
     private void loadAllSales() {
@@ -122,8 +127,6 @@ public class MonthlySalesView extends AppCompatActivity {
             @Override
             public void onChanged(List<SalesData> salesDataList) {
                 if (salesDataList != null && !salesDataList.isEmpty()) {
-                    // Data is loaded, show the item name column
-
                     salesDataAdapter = new SalesDataAdapter(salesDataList);
                     recyclerView.setAdapter(salesDataAdapter);
 
@@ -131,14 +134,7 @@ public class MonthlySalesView extends AppCompatActivity {
                     for (SalesData data : salesDataList) {
                         totalAmount += data.getAmount();
                     }
-                    grandTotal.setText(String.format("NRS.%.2f", totalAmount));
-
-                    SpannableStringBuilder builder = new SpannableStringBuilder();
-                    builder.append("In Words: ");
-                    builder.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 0, "In Words: ".length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    builder.setSpan(new RelativeSizeSpan(1.5f), 0, "In Words: ".length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    builder.append(AmountToWordsConverter.convertAmountToWords(totalAmount));
-                    amountInWords.setText(builder);
+                    getAmountInWordView(totalAmount);
                 }
             }
         });
